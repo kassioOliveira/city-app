@@ -1,8 +1,7 @@
-import React from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 import {Button} from '@mui/material';
 import { useAppThemeContext } from '../shared/contexts/ThemeContext';
-
 
 
 export const AppRoutes = () => {

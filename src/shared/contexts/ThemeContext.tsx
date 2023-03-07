@@ -13,11 +13,11 @@ const ThemContext = createContext({} as IThemeContextData);
 
 interface IChildrenProp {
     children: React.ReactNode;
-}
+};
 
 export const useAppThemeContext = () => {
     return useContext(ThemContext);
-}
+};
 
 export const AppThemeProvider: React.FC<IChildrenProp> = ({children}) => {
     const [themeName,setThemeName] = useState<'light' | 'dark'>('light');
@@ -43,4 +43,4 @@ export const AppThemeProvider: React.FC<IChildrenProp> = ({children}) => {
              </ThemeProvider>
         </ThemContext.Provider>
     )
-}
+};
