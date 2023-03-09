@@ -25,13 +25,15 @@
     "@typescript-eslint/parser": "^5.54.1",
     "eslint": "^8.5.0",
     "eslint-plugin-react": "^7.28.0",
+    "json-server": "^0.17.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock": "json-server -w -p 3333 ./mock/database.json"
   },
   "eslintConfig": {
     "extends": [
