@@ -1,7 +1,8 @@
 {
    "pessoas": [{
     "id":1,
-    "nome":"kassio",
-    "sobrenome":"Silva"
+    "email":"kassio@gmail.com",
+    "cidadeId":53,
+    "nomeCompleto": "Kassio Oliveira"
    }]
 }
