@@ -1,11 +1,12 @@
 import { useMemo, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody, TableFooter, LinearProgress } from '@mui/material';
 
 import { FerramentasDaListagem } from '../../shared/components';
 import { useDebounce } from '../../shared/hooks';
 import { LayoutBaseDePagina } from '../../shared/layouts';
 import { IListagemPessoas, PessoasService } from '../../shared/services/api/pessoas/PessoasService';
+import { Environment } from '../../shared/environment';
 
 
 
@@ -80,6 +81,22 @@ export const ListagemDePessoas: React.FC = () => {
             ))}
 
           </TableBody>
+
+
+          { totalCount === 0 && !isLoading && (
+            <caption>{Environment.LISTAGEM_VAZIA}</caption>
+          )}
+
+
+          <TableFooter>
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant='indeterminate'/>
+                </TableCell>
+              </TableRow>
+            )}
+          </TableFooter>
         </Table>
       </TableContainer>
 
