@@ -7,12 +7,6 @@
       "nomeCompleto": "Kassio Oliveira"
     },
     {
-      "id": 3,
-      "email": "gustavo@gmail.com",
-      "cidadeId": 63,
-      "nomeCompleto": "Gustavo Silva"
-    },
-    {
       "id": 6,
       "email": "fernadinho@gmail.com",
       "cidadeId": 78,
@@ -23,12 +17,6 @@
       "email": "chico@gmail.com",
       "cidadeId": 79,
       "nomeCompleto": "Chico Ferreira"
-    },
-    {
-      "id": 8,
-      "email": "francisco@gmail.com",
-      "cidadeId": 130,
-      "nomeCompleto": "Francisco Junior"
     },
     {
       "id": 9,
