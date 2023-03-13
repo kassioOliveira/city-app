@@ -1,6 +1,6 @@
 import { useMemo, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody, TableFooter, LinearProgress, Pagination } from '@mui/material';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody, TableFooter, LinearProgress, Pagination, IconButton, Icon } from '@mui/material';
 
 import { FerramentasDaListagem } from '../../shared/components';
 import { useDebounce } from '../../shared/hooks';
@@ -13,6 +13,7 @@ import { Environment } from '../../shared/environment';
 export const ListagemDePessoas: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
+  const navigate = useNavigate();
 
   const [rows, setRows] = useState<IListagemPessoas[]>([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -51,6 +52,21 @@ export const ListagemDePessoas: React.FC = () => {
      
     
   }, [busca, pagina]);
+
+  const handleDelete = (id: number) => {
+    if (confirm('Realmente deseja apagar?')){
+      PessoasService.deleteById(id)
+        .then(result => {
+          if(result instanceof Error) {
+            alert(result.message);
+          }else{ 
+            setRows(oldRows => oldRows.filter(oldRow => oldRow.id !== id));
+            alert('Registro apagado com sucesso!');
+          }
+        });
+    }
+
+  };
   
 
   return (
@@ -80,7 +96,12 @@ export const ListagemDePessoas: React.FC = () => {
 
             {rows.map(row => (
               <TableRow key={row.id}>
-                <TableCell>Ações</TableCell>
+                <IconButton size='small' onClick={() =>handleDelete(row.id)}>
+                  <Icon>delete</Icon>
+                </IconButton>
+                <IconButton size='small' onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}>
+                  <Icon>edit</Icon>
+                </IconButton>
                 <TableCell>{row.nomeCompleto}</TableCell>
                 <TableCell>{row.email}</TableCell>
               </TableRow>
