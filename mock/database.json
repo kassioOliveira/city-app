@@ -8,9 +8,9 @@
     },
     {
       "id": 6,
+      "nomeCompleto": "Fernandinho beira mar",
       "email": "fernadinho@gmail.com",
-      "cidadeId": 78,
-      "nomeCompleto": "Fernandinho beira mar"
+      "cidadeId": 78
     },
     {
       "id": 7,
@@ -65,6 +65,12 @@
       "email": "jota@gmail.com",
       "cidadeId": 350,
       "nomeCompleto": "jota Bala"
+    },
+    {
+      "id": 17,
+      "nomeCompleto": "juliano123u",
+      "email": "juliano22gmail.com",
+      "cidadeId": "99"
     }
   ]
 }
