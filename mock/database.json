@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id": 1,
+      "nomeCompleto": "Kassio Oliveira",
       "email": "kassio@gmail.com",
-      "cidadeId": 53,
-      "nomeCompleto": "Kassio Oliveira"
+      "cidadeId": 4
     },
     {
       "id": 6,
@@ -77,6 +77,18 @@
     {
       "nome": "josleandia",
       "id": 1
+    },
+    {
+      "id": 2,
+      "nome": "brasilia"
+    },
+    {
+      "nome": "rio de janeiro",
+      "id": 3
+    },
+    {
+      "nome": "Salvador",
+      "id": 4
     }
   ]
 }
