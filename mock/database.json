@@ -72,5 +72,11 @@
       "email": "juliano22gmail.com",
       "cidadeId": "99"
     }
+  ],
+  "cidades": [
+    {
+      "nome": "josleandia",
+      "id": 1
+    }
   ]
 }

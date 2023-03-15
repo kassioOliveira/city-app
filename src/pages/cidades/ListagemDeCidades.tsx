@@ -5,17 +5,17 @@ import { Paper, Table, TableContainer, TableHead, TableRow, TableCell, TableBody
 import { FerramentasDaListagem } from '../../shared/components';
 import { useDebounce } from '../../shared/hooks';
 import { LayoutBaseDePagina } from '../../shared/layouts';
-import { IListagemPessoas, PessoasService } from '../../shared/services/api/pessoas/PessoasService';
+import { IListagemCidades, CidadesService } from '../../shared/services/api/cidades/CidadesService';
 import { Environment } from '../../shared/environment';
 
 
 
-export const ListagemDePessoas: React.FC = () => {
+export const ListagemDeCidades: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
   const navigate = useNavigate();
 
-  const [rows, setRows] = useState<IListagemPessoas[]>([]);
+  const [rows, setRows] = useState<IListagemCidades[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading,setIsLoading] = useState(true);
 
@@ -35,7 +35,7 @@ export const ListagemDePessoas: React.FC = () => {
 
     debounce(()=> {
 
-      PessoasService.getAll(pagina,busca)
+      CidadesService.getAll(pagina,busca)
         .then((result) => {
           setIsLoading(false);
 
@@ -54,7 +54,7 @@ export const ListagemDePessoas: React.FC = () => {
 
   const handleDelete = (id: number) => {
     if (confirm('Realmente deseja apagar?')){
-      PessoasService.deleteById(id)
+      CidadesService.deleteById(id)
         .then(result => {
           if(result instanceof Error) {
             alert(result.message);
@@ -70,12 +70,12 @@ export const ListagemDePessoas: React.FC = () => {
 
   return (
     <LayoutBaseDePagina
-      titulo='Listagem de pessoas'
+      titulo='Listagem de cidades'
       barraDeFerramentas={
         <FerramentasDaListagem
           textoBotaoNovo='Nova'
           textoDeBusca={busca}
-          aoClicarEmNovo={()=> navigate('/pessoas/detalhe/nova')}
+          aoClicarEmNovo={()=> navigate('/cidades/detalhe/nova')}
           mostrarBotaoBusca
           mostrarInputBusca
           aoMudarTextoDeBusca={texto => setSearchParams({ busca: texto,pagina: '1'}, { replace:true})}
@@ -88,8 +88,7 @@ export const ListagemDePessoas: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell>Ações</TableCell>
-              <TableCell>Nome completo</TableCell>
-              <TableCell>Email</TableCell>
+              <TableCell>Nome</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -99,11 +98,10 @@ export const ListagemDePessoas: React.FC = () => {
                 <IconButton size='small' onClick={() =>handleDelete(row.id)}>
                   <Icon>delete</Icon>
                 </IconButton>
-                <IconButton size='small' onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}>
+                <IconButton size='small' onClick={() => navigate(`/cidades/detalhe/${row.id}`)}>
                   <Icon>edit</Icon>
                 </IconButton>
-                <TableCell>{row.nomeCompleto}</TableCell>
-                <TableCell>{row.email}</TableCell>
+                <TableCell>{row.nome}</TableCell>
               </TableRow>
             ))}
 
