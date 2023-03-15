@@ -1,6 +1,8 @@
 
 import { BrowserRouter } from 'react-router-dom';
 
+import './shared/forms/TraducoesYup';
+
 import { AppThemeProvider } from './shared/contexts/ThemeContext';
 import { AppRoutes } from './routes';
 import { MenuLateral } from './shared/components/menu-lateral/Menu-lateral';
